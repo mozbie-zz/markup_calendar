@@ -1,4 +1,5 @@
 @import "vars";
+@import "lists";
 
 body {
   margin: 0;
@@ -38,43 +39,16 @@ body {
     }
   }
 
-  &-mon div:first-child {
-    grid-column-start: 1;
+  @each $current-day in $week-list {
+    $i: index($week-list, $current-day);
+    &-#{$current-day} div:first-child {
+      grid-column-start: $i;
+    }
   }
 
-  &-tue div:first-child {
-    grid-column-start: 2;
-  }
-
-  &-wed div:first-child {
-    grid-column-start: 3;
-  }
-
-  &-thu div:first-child {
-    grid-column-start: 4;
-  }
-
-  &-fri div:first-child {
-    grid-column-start: 5;
-  }
-
-  &-sat div:first-child {
-    grid-column-start: 6;
-  }
-
-  &-sun div:first-child {
-    grid-column-start: 7;
-  }
-
-  &-28 div:nth-child(28) ~ div {
-    display: none;
-  }
-
-  &-29 div:nth-child(29) ~ div {
-    display: none;
-  }
-
-  &-30 div:nth-child(30) ~ div {
-    display: none;
+  @for $i from 28 through 30 {
+    &-#{$i} div:nth-child(#{$i}) ~ div {
+      display: none;
+    }
   }
 }
