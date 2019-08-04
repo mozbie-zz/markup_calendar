@@ -1,14 +1,59 @@
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400; }
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
 body {
-  background: #eee; }
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh; }
+
+.calendar {
+  margin: auto;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(6, 100px); }
+  .calendar div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    counter-increment: dayCounter;
+    width: 100px;
+    height: 100px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #000;
+    background-color: #eee;
+    margin: 1px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s; }
+    .calendar div:hover {
+      cursor: pointer;
+      background-color: #ffc0cb;
+      -webkit-transform: translateY(-20px);
+              transform: translateY(-20px); }
+    .calendar div::after {
+      content: counter(dayCounter);
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 30px;
+      margin: auto; }
+  .calendar-mon div:first-child {
+    grid-column-start: 1; }
+  .calendar-tue div:first-child {
+    grid-column-start: 2; }
+  .calendar-wed div:first-child {
+    grid-column-start: 3; }
+  .calendar-thu div:first-child {
+    grid-column-start: 4; }
+  .calendar-fri div:first-child {
+    grid-column-start: 5; }
+  .calendar-sat div:first-child {
+    grid-column-start: 6; }
+  .calendar-sun div:first-child {
+    grid-column-start: 7; }
+  .calendar-28 div:nth-child(28) ~ div {
+    display: none; }
+  .calendar-29 div:nth-child(29) ~ div {
+    display: none; }
+  .calendar-30 div:nth-child(30) ~ div {
+    display: none; }
 
 /*# sourceMappingURL=main.css.map */
